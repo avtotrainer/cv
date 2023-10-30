@@ -2,3 +2,8 @@
 ---
 
 @import "base";
+
+img {
+    border: 1px solid #ccc; /* Толщина, стиль и цвет рамки */
+    padding: 5px; /* Отступ вокруг изображения */
+  }
