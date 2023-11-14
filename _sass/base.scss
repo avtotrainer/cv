@@ -57,45 +57,6 @@ h4 {
   font-family: "BPG Arial Caps", sans-serif;
 }
 
-/* ფორმის სტილები */
-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
-}
-
-input[type="text"], textarea {
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-textarea {
-  resize: vertical;
-}
-
-input[type="submit"] {
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-
-
-
-
-
-
-
-body {
-  /* მე ვავჯობინე ფრეივორკის დამატების შემდეგ შემეცვალა*/
-
-}
-
 
 
 
@@ -107,13 +68,8 @@ header {
   flex-direction: column;
   /* align-items: center; */
 }
-/* ფოტოს და ტექსტის სტილის კონტეინერი */
 
 
-.profile-wrapper {
-  display: flex; /* header-ს ვაკეთებთ flex კონტეინერად */
-  justify-content: space-between; /* შვილებზე სივრცეს ვანაწილებთ ერნაირად */
-}
 /* ფოტოს რკალის სტილი */
 .profile-pic {
   width: 200px; /* ფოტოს სიგანე  200px */
@@ -130,9 +86,115 @@ header {
   object-position: center; /* ფოტოს რკალში დაცენტრება */
 }
 
+
+
+/* Стили для устройств с шириной экрана до 767 пикселей (мобильные устройства) */
+
+@media only screen and (max-width: 1023px) {
+  /* Добавьте стили, применяемые только для мобильных устройств */
+  /* Например, изменение размера текста, скрытие некоторых элементов и т. д. */
+
+  .profile-wrapper {
+    display: flex;
+    flex-direction: column; /* Размещаем элементы в столбец на маленьких экранах */
+    align-items: center;
+  }
+
+  .profile-text {
+    order: 3; /* Возвращаем порядок для мобильных устройств */
+    text-align: center;
+    margin-bottom: 20px; /* Добавляем отступ снизу */
+  }
+
+  .cv-title {
+    order: 1; /* Даем cv-title самый высокий порядок, чтобы он был наверху */
+    text-align: center;
+  }
+  
+  .profile-pic {
+    text-align: center;
+    order: 2;
+  }
+
+  .profile-pic img {
+    display: inline-block; /* Убеждаемся, что изображение не растягивается на всю ширину */
+  }
+
+  nav {
+    display: none; /* Начинаем с того, что скрываем обычное навигационное меню */
+  }
+
+  /* Стили для сендвича */
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #333; /* Цвет фона для сендвича */
+    position: absolute;
+    top: 60px; /* Располагаем сендвич под заголовком */
+    left: 0;
+    width: 100%;
+  }
+
+  nav ul li {
+    padding: 15px;
+    text-align: center;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+
+  /* Показываем сендвич только при клике на бургер-меню */
+  #burger-menu {
+    display: block;
+    cursor: pointer;
+  }
+
+  /* Скрываем бургер-меню на больших экранах */
+  #burger-menu:checked + nav ul {
+    display: flex;
+  }
+
+
+}
+
+/* Стили для устройств с шириной экрана от 768 пикселей до 1023 пикселей (планшеты) */
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Добавьте стили, применяемые только для планшетов */
+}
+
+@media screen and (min-width: 768px) {
+  .burger-menu {
+    display: none; /* Скрыть сендвич на больших экранах */
+  }
+
+
+}
+
+/* Стили для устройств с шириной экрана от 1024 пикселей и выше (десктопы) */
+
+@media only screen and (min-width: 1024px) {
+
+
+
+/* ფოტოს და ტექსტის სტილის კონტეინერი */
+
+
+.profile-wrapper {
+  display: flex; /* header-ს ვაკეთებთ flex კონტეინერად */
+  justify-content: space-between; /* შვილებზე სივრცეს ვანაწილებთ ერნაირად */
+}
+
+
 /* ტექსტური კონტენტის სტილები */
 .profile-text {
   margin-left: 50px; /* ფოტოს მარცხნივ არის დამატება */
+  order: 1;
 }
 
 .profile-text h1 {
@@ -150,6 +212,7 @@ header {
   justify-content: center; /* ტექსტს ვაცენტრებთ ჰორიზონტალურად */
   flex-grow: 1; /* კონტეინერში დარჩენილი ადგილი აითვისოს მთლიანად */
   text-align: center;
+  order: 2;
 }
 
 nav {
@@ -200,4 +263,5 @@ nav li a:visited {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
 }
