@@ -1,12 +1,12 @@
 ---
 layout: default
-title: "CV"
+title: CURRICULUM VITAE
 ---
 
  
     
 
-   
+   ## ᲢᲔᲡᲢᲘ
 
     
     
